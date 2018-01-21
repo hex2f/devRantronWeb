@@ -1,7 +1,8 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title></title>
+    <title>devRantron</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>devRantron</title>
@@ -22,62 +23,85 @@
 
       <div id="desc">
         <h1>devRantron</h1>
-        <h3>// An open source <a href="https://devrant.io">devRant</a> client</h3>
-        <h3>// Built for the community by the community.</h3>
+        <h3>An open source <a href="https://devrant.io">devRant</a> client.</h3>
+        <h3>Built for the community by the community.</h3>
         <div id="downloadButtons">
-          <a href="https://github.com/tahnik/devRantron/releases/download/v1.0.0/devrantron_1.0.0_amd64.deb"><button class="downloadBtn active"><i class="ion-social-tux"></i><span>Linux</span></button></a>
-          <a href="https://github.com/tahnik/devRantron/releases/download/v1.0.0/devrantron-setup-1.0.0.exe"<button class="downloadBtn active"><i class="ion-social-windows"></i><span>Windows</span></button></a>
-          <a href="https://github.com/tahnik/devRantron/releases/download/v1.0.0/devrantron-1.0.0.dmg"<button class="downloadBtn active"><i class="ion-social-apple"></i><span>macOS</span></button></a>
+          <a id="debian" href="https://github.com/tahnik/devRantron/releases/latest"><button class="downloadBtn debian"><i class="ion-social-tux"></i><span>Ubuntu</span></button></a>
+          <a id="windows" href="https://github.com/tahnik/devRantron/releases/latest"><button class="downloadBtn windows"><i class="ion-social-windows"></i><span>Windows</span></button></a>
+          <a id="macOS" href="https://github.com/tahnik/devRantron/releases/latest"><button class="downloadBtn macOS"><i class="ion-social-apple"></i><span>macOS</span></button></a>
         </div>
+        <p>For all other linux platforms, please use this
+        <a id="linux" href="https://github.com/tahnik/devRantron/releases/latest">link</a></p>
       </div>
 
     </div>
 
-    <div id="stats">
-      <p>devRantron has been launched a total of <b id="statsTotal">199,999</b> times.<br> <b id="statsMonth">74,320</b> so far this month and <b id="statsToday">5,249</b> times today.</p>
-      <p><b id="statsLinux">33%</b> use Linux, <b id="statsWindows">33%</b> use Windows and <b id="statsMacOS">33%</b> use macOS</p>
-    </div>
 
     <h1 class="tac">Contributors</h1>
-
-    <div id="contributors">
+    <div class="contributors">
       <div class="contributor">
-        <img src="https://avatars.devrant.io/v-17_c-3_b-4_g-m_9-2_1-4_16-9_3-14_8-3_7-3_5-4_12-4_6-10_10-9_2-46_15-18_11-2_18-4_4-4_19-3_20-14.jpg" alt="">
+        <img src="https://avatars.devrant.com/v-18_c-3_b-4_g-m_9-2_1-4_16-15_3-2_8-4_7-4_5-3_12-4_6-10_10-9_2-39_15-18_11-4_18-4_4-3_19-1_20-14_21-1.jpg" alt="">
         <div class="contributorMeta">
-          <p><b>Tahnik</b></p>
-          <p>Project Lead</p>
+          <span>Tahnik</span>
+          <span>Project Lead</span>
         </div>
       </div>
 
       <div class="contributor">
         <img src="https://avatars.devrant.io/v-17_c-3_b-5_g-m_9-1_1-1_16-14_3-2_8-3_7-3_5-4_12-1_6-3_10-9_2-54_11-2_4-4_19-2_21-2.jpg" alt="">
         <div class="contributorMeta">
-          <p><b>Dacexi</b></p>
-          <p>UI/UX Designer</p>
+          <span>Dacexi</span>
+          <span>UI/UX Lead</span>
         </div>
       </div>
 
       <div class="contributor">
         <img src="https://avatars.devrant.io/v-17_c-3_b-3_g-m_9-1_1-2_16-6_3-4_8-2_7-2_5-1_12-2_6-3_10-9_2-10_15-11_11-1_18-4_4-1_19-3_20-1.jpg" alt="">
         <div class="contributorMeta">
-          <p><b>SirWindfield</b></p>
-          <p>Infrastructure Engineer</p>
-        </div>
-      </div>
-
-      <div class="contributor">
-        <img src="https://avatars.devrant.io/v-17_c-3_b-2_g-m_9-1_1-2_16-1_3-2_8-1_7-1_5-1_12-2_6-14_10-1_2-19_15-2_4-1.jpg" alt="">
-        <div class="contributorMeta">
-          <p><b>PhantomBKB</b></p>
-          <p>Software Engineer</p>
+          <span>SirWindfield</span>
+          <span>CI/CD Lead</span>
         </div>
       </div>
     </div>
 
+    <div class="contributors">
+        <div class="contributor">
+          <img src="https://avatars.devrant.com/v-18_c-1_b-4_g-m_9-1_1-1_16-6_3-8_8-1_7-1_5-1_12-1_6-4_10-5_2-17_11-1_4-1_19-1.png" alt="">
+          <div class="contributorMeta">
+            <span>DRSDavidSoft</span>
+            <span>Developer</span>
+          </div>
+        </div>
+  
+        <div class="contributor">
+          <img src="https://avatars.devrant.com/v-18_c-1_b-2_g-m_9-1_1-2_16-1_3-2_8-1_7-1_5-1_12-2_6-14_10-1_2-19_15-2_4-1.png" alt="">
+          <div class="contributorMeta">
+            <span>PhantomBKB</span>
+            <span>Developer</span>
+          </div>
+        </div>
+  
+        <div class="contributor">
+          <img src="https://avatars.devrant.com/v-18_c-1_b-4_g-m_9-1_1-2_16-3_3-7_8-3_7-3_5-4_12-2_6-3_2-71_18-1_4-4_19-3.png" alt="">
+          <div class="contributorMeta">
+            <span>nblackburn</span>
+            <span>Developer</span>
+          </div>
+        </div>
+
+        <div class="contributor">
+            <img src="https://avatars.devrant.com/v-18_c-1_b-6_g-m_9-1_1-1_16-14_3-1_8-4_7-4_5-4_12-1_6-2_10-4_2-82_11-2_18-4_4-4_19-3_20-1_21-2.png" alt="">
+            <div class="contributorMeta">
+              <span>CozyPlanes</span>
+              <span>Developer</span>
+            </div>
+          </div>
+      </div>
+
     <div id="github">
       <h1 class="tac">GitHub</h1>
       <p>
-        You can contribute to this project over on <a href="https://GitHub.com/tahnik/devRantron">GitHub.com/tahnik/devRantron</a>.
+        You can contribute to this project over on <a href="https://GitHub.com/tahnik/devRantron">gitHub.com/tahnik/devRantron</a>.
         Make sure to read the
         "<a href="https://github.com/tahnik/devRantron/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a>" and 
         "<a href="https://github.com/tahnik/devRantron/blob/master/CONTRIBUTING.md">Contributing</a>" guides before contributing.

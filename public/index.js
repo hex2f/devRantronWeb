@@ -6,41 +6,48 @@ if (navigator.appVersion.indexOf("Linux")!=-1) OSName="Linux";
 
 switch (OSName) {
   case "Windows":
-    document.getElementById('downloadButtons').innerHTML = `
-      <a href="https://github.com/tahnik/devRantron/releases/download/v1.0.0/devrantron-setup-1.0.0.exe"><button class="downloadBtn active"><i class="ion-social-windows"></i><span>Windows</span></button></a>
-      <a href="https://github.com/tahnik/devRantron/releases/download/v1.0.0/devrantron-1.0.0.dmg"><button class="downloadBtn"><i class="ion-social-apple"></i><span>macOS</span></button></a>
-      <a href="https://github.com/tahnik/devRantron/releases/download/v1.0.0/devrantron_1.0.0_amd64.deb"><button class="downloadBtn"><i class="ion-social-tux"></i><span>Linux</span></button></a>
-    `;
+    document.getElementsByClassName('windows')[0].classList += " active";
     break;
   case "MacOS":
-    document.getElementById('downloadButtons').innerHTML = `
-      <a href="https://github.com/tahnik/devRantron/releases/download/v1.0.0/devrantron-1.0.0.dmg"><button class="downloadBtn active"><i class="ion-social-apple"></i><span>macOS</span></button></a>
-      <a href="https://github.com/tahnik/devRantron/releases/download/v1.0.0/devrantron-setup-1.0.0.exe"><button class="downloadBtn"><i class="ion-social-windows"></i><span>Windows</span></button></a>
-      <a href="https://github.com/tahnik/devRantron/releases/download/v1.0.0/devrantron_1.0.0_amd64.deb"><button class="downloadBtn"><i class="ion-social-tux"></i><span>Linux</span></button></a>
-    `;
+    document.getElementsByClassName('macOS')[0].classList += " active";
     break;
   case "Linux":
-    document.getElementById('downloadButtons').innerHTML = `
-      <a href="https://github.com/tahnik/devRantron/releases/download/v1.0.0/devrantron_1.0.0_amd64.deb"><button class="downloadBtn active"><i class="ion-social-tux"></i><span>Linux</span></button></a>
-      <a href="https://github.com/tahnik/devRantron/releases/download/v1.0.0/devrantron-setup-1.0.0.exe"><button class="downloadBtn"><i class="ion-social-windows"></i><span>Windows</span></button></a>
-      <a href="https://github.com/tahnik/devRantron/releases/download/v1.0.0/devrantron-1.0.0.dmg"><button class="downloadBtn"><i class="ion-social-apple"></i><span>macOS</span></button></a>
-    `;
+    document.getElementsByClassName('debian')[0].classList += " active";
     break;
-
   default:
     break;
 }
 
-function setStatNumbers () {
-  var res = JSON.parse(this.responseText);
-  document.getElementById('statsTotal').innerHTML = res.total;
-  document.getElementById('statsMonth').innerHTML = res.month;
-  document.getElementById('statsToday').innerHTML = res.today;
+function getDownloadLink(extension) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', "https://api.github.com/repos/tahnik/devRantron/releases/latest", true);
+  xhr.send();
 
-  document.getElementById('statsLinux').innerHTML = Math.round((res.onLinux / res.total) * 1000) / 10 + "%";
-  document.getElementById('statsWindows').innerHTML = Math.round((res.onWindows / res.total) * 1000) / 10 + "%";
-  document.getElementById('statsMacOS').innerHTML = Math.round((res.onMac / res.total) * 1000) / 10 + "%";
+  xhr.onreadystatechange = processRequest;
+  function processRequest(e) {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      const response = JSON.parse(xhr.responseText);
+      const assets = response.assets;
+      console.log(assets);
+      assets.forEach(function(element) {
+        if (element.name.indexOf('exe') !== -1) {
+          document.getElementById('windows').href = element.browser_download_url;
+        }
+        if (element.name.indexOf('dmg') !== -1) {
+          document.getElementById('macOS').href = element.browser_download_url;
+        }
+        if (element.name.indexOf('deb') !== -1) {
+          document.getElementById('debian').href = element.browser_download_url;
+        }
+        if (element.name.indexOf('AppImage') !== -1) {
+          document.getElementById('linux').href = element.browser_download_url;
+        }
+      }, this);
+    }
+  }
 }
+
+getDownloadLink();
 
 var req = new XMLHttpRequest();
 req.addEventListener("load", setStatNumbers);
