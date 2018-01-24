@@ -28,7 +28,6 @@ function getDownloadLink(extension) {
     if (xhr.readyState == 4 && xhr.status == 200) {
       const response = JSON.parse(xhr.responseText);
       const assets = response.assets;
-      console.log(assets);
       assets.forEach(function(element) {
         if (element.name.indexOf('exe') !== -1) {
           document.getElementById('windows').href = element.browser_download_url;
@@ -48,8 +47,3 @@ function getDownloadLink(extension) {
 }
 
 getDownloadLink();
-
-var req = new XMLHttpRequest();
-req.addEventListener("load", setStatNumbers);
-req.open("GET", "https://devrantron.firebaseio.com/stats.json");
-req.send();
