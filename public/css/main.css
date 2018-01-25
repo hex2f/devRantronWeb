@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
-@import url('https://fonts.googleapis.com/css?family=Comfortaa:300,400,700');
-
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
+@import url("https://fonts.googleapis.com/css?family=Comfortaa:300,400,700");
 @keyframes fadein {
   0% {
     opacity: 0;
@@ -64,6 +63,7 @@
   flex-direction: column;
   align-items: center;
 }
+
 .feature {
   display: flex;
   width: 100%;
@@ -71,41 +71,50 @@
   overflow: visible;
   max-width: 1200px;
 }
+
 .feature > .images {
   flex: 1;
   position: relative;
   min-width: 592px;
 }
+
 .feature.left > .images {
   padding: 2rem 2rem 2rem 0;
 }
+
 .feature.right > .images {
   padding: 2rem 0 2rem 2rem;
 }
-.feature > .description {
-  flex: 1;
-  padding: 2rem;
-}
+
 .feature.right > .description {
   padding: 2rem 2rem 2rem 0;
 }
-.feature > .description > p { 
+
+.feature > .description {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.feature > .description > p {
   color: #54556e;
   line-height: 1.5;
   font-size: 1.2rem;
 }
-.feature > .description > h1 { 
+
+.feature > .description > h1 {
   color: #54556e;
   font-size: 2rem;
 }
+
 .feature > .images > img {
   width: 100%;
   border-radius: 5px;
 }
 
-
 /* Standard syntax */
-
 @keyframes cycle-banner {
   0% {
     background-image: none;
@@ -135,46 +144,46 @@
 
 /* Chrome, Safari, Opera */
 @-webkit-keyframes cycle-banner-btn {
-  0%   {
-      background-color: #f99a66;    	
-    }
-  25%   {
-      background-color: #f99a66; 
-    }
-  31%   {
-      background-color: #2A8B9D; 
-    }    	
-  60%   {
-      background-color: #2A8B9D; 
-    }	
-  66%   {
-      background-color: #D55161; 
-    }    		
-  94%  {
-      background-color: #D55161;  
-    }  	
+  0% {
+    background-color: #f99a66;
+  }
+  25% {
+    background-color: #f99a66;
+  }
+  31% {
+    background-color: #2A8B9D;
+  }
+  60% {
+    background-color: #2A8B9D;
+  }
+  66% {
+    background-color: #D55161;
+  }
+  94% {
+    background-color: #D55161;
+  }
 }
 
 /* Standard syntax */
 @keyframes cycle-banner-btn {
-  0%   {
-      background-color: #f99a66;    	
-    }
-  25%   {
-      background-color: #f99a66; 
-    }
-  31%   {
-      background-color: #2A8B9D; 
-    }    	
-  60%   {
-      background-color: #2A8B9D; 
-    }	
-  66%   {
-      background-color: #D55161; 
-    }    		
-  94%  {
-      background-color: #D55161;  
-    }  	
+  0% {
+    background-color: #f99a66;
+  }
+  25% {
+    background-color: #f99a66;
+  }
+  31% {
+    background-color: #2A8B9D;
+  }
+  60% {
+    background-color: #2A8B9D;
+  }
+  66% {
+    background-color: #D55161;
+  }
+  94% {
+    background-color: #D55161;
+  }
 }
 
 html {
@@ -209,12 +218,26 @@ body {
   background: #FFFFFF;
   border-radius: 8px;
   position: relative;
+  transition: min-width 0.2s, height 0.2s;
+}
+
+@media screen and (max-width: 1200px) {
+  #screenshotsContainer {
+    height: 368px;
+    min-width: 430px;
+  }
+}
+
+@media screen and (max-width: 1030px) {
+  #screenshotsContainer {
+    min-width: 0px;
+  }
 }
 
 #screenshotsContainer #screenshots {
   background: #54556e;
-  width: 592px;
-  height: 460px;
+  width: calc(100% - 8px);
+  height: calc(100% - 40px);
   border-radius: 4px;
   position: absolute;
   bottom: 4px;
@@ -223,7 +246,7 @@ body {
 }
 
 #screenshotsContainer #screenshots #appframe {
-  width: 592px;
+  width: 100%;
   opacity: 0;
   transition: opacity 0.3s;
 }
@@ -236,7 +259,8 @@ body {
 }
 
 #screenshotsContainer #screenshots #scrollalgo {
-  left: 242px;
+  width: 40.7%;
+  left: calc(50% - 54px);
   animation: scroll 23s infinite;
 }
 
@@ -262,7 +286,6 @@ body {
 .downloadBtn {
   margin-top: 22px;
   margin-right: 8px;
-  width: 150px;
   border: none;
   background: #7b7b7f;
   color: #fff;
@@ -272,6 +295,7 @@ body {
   display: flex;
   align-items: center;
   cursor: pointer;
+  width: 142px;
   transition: background 0.2s;
 }
 
@@ -290,6 +314,15 @@ body {
 .downloadBtn i {
   font-size: 24px;
   width: 24px;
+}
+
+@media screen and (max-width: 580px) {
+  .downloadBtn {
+    width: 56px !important;
+  }
+  .downloadBtn span {
+    display: none;
+  }
 }
 
 .downloadBtn span {
@@ -312,16 +345,32 @@ body {
   padding: 42px;
 }
 
+@media screen and (max-width: 580px) {
+  #desc {
+    align-items: center;
+  }
+  #desc h1 {
+    font-size: 14.8vw !important;
+  }
+  #desc h3, #desc a {
+    font-size: 24px !important;
+  }
+  #desc p a {
+    font-size: 16px !important;
+  }
+}
+
 #desc h1 {
   font-size: 84px;
   margin: 0px;
+  align-self: flex-start;
 }
 
-#desc h3,
-#desc a {
-  font-size: 28px;
+#desc h3, #desc a {
+  font-size: 27px;
   margin: 0px;
   color: #FFFFFF;
+  align-self: flex-start;
 }
 
 #stats {
@@ -396,6 +445,10 @@ body > h1.tac {
   font-family: Roboto, Arial, Helvetica, sans-serif;
 }
 
+.contributors .contributor .contributorMeta p {
+  margin: 4px;
+}
+
 .contributors > div > div > span:nth-child(1) {
   padding-top: 0.5rem;
   font-weight: 700;
@@ -403,10 +456,6 @@ body > h1.tac {
 
 .contributors > div > div > p {
   text-align: center;
-}
-
-.contributors .contributor .contributorMeta p {
-  margin: 4px;
 }
 
 body > div.contributors.non_leads > div > img {
@@ -450,6 +499,3 @@ body > div.contributors.non_leads > div > div {
 #github * {
   z-index: 100;
 }
-
-
-/*# sourceMappingURL=main.css.map */

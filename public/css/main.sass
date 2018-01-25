@@ -1,53 +1,218 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700')
+
+@import url('https://fonts.googleapis.com/css?family=Comfortaa:300,400,700')
+
 @keyframes fadein
   0%
     opacity: 0
+
   25%
     opacity: 0
+
   100%
     opactiy: 1
+
 
 @keyframes scroll
   0%
     top: -20px
+
   35%
     top: -55%
+
   60%
     top: -80%
+
   75%
     top: -100%
+
   100%
     top: -20px
+
+
+@-webkit-keyframes cycle-banner
+  0%
+    background-image: none
+    background-color: #A973A2
+
+  25%
+    background-image: none
+    background-color: #A973A2
+
+  31%
+    background-image: none
+    background-color: #7BC8A4
+
+  60%
+    background-image: none
+    background-color: #7BC8A4
+
+  66%
+    background-image: none
+    background-color: #F99A66
+
+  94%
+    background-image: none
+    background-color: #F99A66
+
+
+.features
+  background: #FFF
+  display: flex
+  flex-direction: column
+  align-items: center
+
+.feature
+  display: flex
+  width: 100%
+  padding: 1rem
+  overflow: visible
+  max-width: 1200px
+  > .images
+    flex: 1
+    position: relative
+    min-width: 592px
+  &.left > .images
+    padding: 2rem 2rem 2rem 0
+  &.right
+    > .images
+      padding: 2rem 0 2rem 2rem
+    > .description
+      padding: 2rem 2rem 2rem 0
+  > .description
+    flex: 1
+    padding: 2rem
+    display: flex
+    flex-direction: column
+    justify-content: center
+  >
+    .description >
+      p
+        color: #54556e
+        line-height: 1.5
+        font-size: 1.2rem
+      h1
+        color: #54556e
+        font-size: 2rem
+    .images > img
+      width: 100%
+      border-radius: 5px
+
+/* Standard syntax
+
+@keyframes cycle-banner
+  0%
+    background-image: none
+    background-color: #A973A2
+
+  25%
+    background-image: none
+    background-color: #A973A2
+
+  31%
+    background-image: none
+    background-color: #7BC8A4
+
+  60%
+    background-image: none
+    background-color: #7BC8A4
+
+  66%
+    background-image: none
+    background-color: #F99A66
+
+  94%
+    background-image: none
+    background-color: #F99A66
+
+
+/* Chrome, Safari, Opera
+@-webkit-keyframes cycle-banner-btn
+  0%
+    background-color: #f99a66
+
+  25%
+    background-color: #f99a66
+
+  31%
+    background-color: #2A8B9D
+
+  60%
+    background-color: #2A8B9D
+
+  66%
+    background-color: #D55161
+
+  94%
+    background-color: #D55161
+
+
+/* Standard syntax
+@keyframes cycle-banner-btn
+  0%
+    background-color: #f99a66
+
+  25%
+    background-color: #f99a66
+
+  31%
+    background-color: #2A8B9D
+
+  60%
+    background-color: #2A8B9D
+
+  66%
+    background-color: #D55161
+
+  94%
+    background-color: #D55161
+
+
 html
-  background: #54556E
+  background-color: #A973A2
+  animation: cycle-banner 15s infinite
+  animation-timing-function: ease-out
+
+h3, p
+  font-family: Roboto, Arial, Helvetica, sans-serif
+  font-weight: 300
+
 body
-  font-family: 'Comfortaa', sans-serif
+  font-family: "Comfortaa", sans-serif
   margin: 0px
-  background: #54556E
   color: #fff
   animation: fadein 0.3s forwards
   overflow-x: hidden
+
 .hero
   display: flex
   flex-direction: row
   justify-content: center
   padding: 28px
+
 #screenshotsContainer
   height: 500px
   min-width: 600px
-  background: #f1f1f1
+  background: #FFFFFF
   border-radius: 8px
   position: relative
+  transition: min-width 0.2s, height 0.2s
+  @media screen and (max-width: 1200px)
+    height: 368px
+    min-width: 430px
+  @media screen and (max-width: 1030px)
+    min-width: 0px
   #screenshots
     background: #54556e
-    width: 592px
-    height: 460px
+    width: calc(100% - 8px)
+    height: calc(100% - 40px)
     border-radius: 4px
     position: absolute
     bottom: 4px
     left: 4px
     overflow: hidden
     #appframe
-      width: 592px
+      width: 100%
       opacity: 0
       transition: opacity 0.3s
     .scrollingimg
@@ -56,21 +221,26 @@ body
       opacity: 0
       transition: opacity 0.3s
     #scrollalgo
-      left: 242px
+      width: 40.7%
+      left: calc(50% - 54px)
       animation: scroll 23s infinite
     #scrollrecent
       /* Adjust for fuckup during capture */
       transform: translateY(-3px)
       left: 355px
       animation: scroll 16s infinite
+
 #downloadButtons
   display: flex
   a
     text-decoration: none !important
+
+.linux a
+  font-size: 1rem
+
 .downloadBtn
   margin-top: 22px
   margin-right: 8px
-  width: 150px
   border: none
   background: #7b7b7f
   color: #fff
@@ -80,6 +250,7 @@ body
   display: flex
   align-items: center
   cursor: pointer
+  width: 142px
   transition: background 0.2s
   &:hover
     background: #6a6a6a
@@ -90,23 +261,42 @@ body
   i
     font-size: 24px
     width: 24px
+  @media screen and (max-width: 580px)
+    width: 56px !important
+    span
+      display: none
   span
     margin-left: 8px
     text-decoration: none !important
   &:focus
     outline: none
+
+#linux
+  font-size: 1rem !important
+
 #desc
   display: flex
   flex-direction: column
   justify-content: center
   padding: 42px
+  @media screen and (max-width: 580px)
+    align-items: center
+    h1
+      font-size: 14.8vw !important
+    h3, a
+      font-size: 24px !important
+    p
+      a
+        font-size: 16px !important
   h1
     font-size: 84px
     margin: 0px
+    align-self: flex-start
   h3, a
-    font-size: 28px
+    font-size: 27px
     margin: 0px
-    color: #C1C1CA
+    color: #FFFFFF
+    align-self: flex-start
 #stats
   width: 100%
   min-height: 100px
@@ -117,15 +307,24 @@ body
   justify-content: center
   align-items: center
   p
-    color: #C1C1CA
+    color: #FFFFFF
     text-align: center
     margin: 4px
   b
     color: #fff
+
 .tac
   text-align: center
-  margin: 26px 0px 0px
-#contributors
+  font-weight: normal
+  margin: 0
+
+body > h1.tac
+  background-color: #FFF
+  color: #54556E
+  padding-top: 20px
+
+.contributors
+  background-color: #FFF
   padding: 24px
   display: flex
   flex-direction: row
@@ -133,14 +332,15 @@ body
   justify-content: center
   align-content: center
   align-items: center
+  color: #54556E
   .contributor
     display: flex
+    flex-direction: column
+    align-items: center
     flex: 0
-    min-width: 325px
+    min-width: 250px
     padding: 12px
     margin: 6px
-    background: #40415a
-    box-shadow: 1px 1px 3px rgba(0,0,0,0.3)
     img
       border-radius: 100%
       height: 96px
@@ -148,39 +348,44 @@ body
       display: flex
       flex-direction: column
       justify-content: center
-      margin-left: 12px
+      align-items: center
+      > span
+        padding-bottom: 0.3rem
+        font-family: Roboto, Arial, Helvetica, sans-serif
       p
         margin: 4px
+  > div > div >
+    span:nth-child(1)
+      padding-top: 0.5rem
+      font-weight: 700
+    p
+      text-align: center
+
+body > div.contributors.non_leads >
+  div > img
+    height: 70px
+  .contributor
+    min-width: 150px
+  div > div
+    font-size: 0.9rem
+
 #github
   position: relative
-  padding: 24px
+  padding: 20px
   display: flex
   flex-direction: column
   flex-wrap: wrap
   justify-content: center
   align-content: center
   align-items: center
-  background: url(https://www.devrant.io/static/devrant/img/profile-banner-bg1b.png)
-  background-size: cover
-  background-repeat: no-repeat
+  background-color: #2A8B9D
   z-index: 91
-  margin-bottom: 32px
   h1
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.4)
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4)
   p
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.4)
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4)
     text-align: center
     a
       color: white
   *
     z-index: 100
-  &::before
-    content: " "
-    height: 100%
-    width: 100%
-    z-index: 99
-    top: 0px
-    left: 0px
-    position: absolute
-    opacity: 0.66
-    background: #d55161
