@@ -61,30 +61,48 @@
   display: flex
   flex-direction: column
   align-items: center
+  padding: 0px 12px
 
 .feature
-  display: flex
-  width: 100%
+  display: grid
   padding: 1rem
   overflow: visible
   max-width: 1200px
+  grid-template-columns: 1fr 1fr
+  grid-template-rows: 1fr
+  @media screen and (max-width: 580px)
+    flex-direction: column
+    grid-template-columns: 1fr
+    grid-template-rows: calc((100vw - 24px) / 1.52) 1fr
+    text-align: center
+    .images
+      padding: 0px !important
+      grid-column: 1 !important
+    .description
+      padding: 0rem 2rem 2rem 2rem !important
+      grid-column: 1 !important
+      grid-row: 2 !important
   > .images
-    flex: 1
     position: relative
-    min-width: 592px
   &.left > .images
     padding: 2rem 2rem 2rem 0
   &.right
     > .images
       padding: 2rem 0 2rem 2rem
+      grid-column: 2
+      grid-row: 1
     > .description
       padding: 2rem 2rem 2rem 0
+      grid-column: 1
+      grid-row: 1
   > .description
     flex: 1
     padding: 2rem
     display: flex
     flex-direction: column
     justify-content: center
+    &.right
+      float: left
   >
     .description >
       p
@@ -338,7 +356,7 @@ body > h1.tac
     flex-direction: column
     align-items: center
     flex: 0
-    min-width: 250px
+    min-width: 175px
     padding: 12px
     margin: 6px
     img
