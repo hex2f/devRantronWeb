@@ -18,6 +18,10 @@ switch (OSName) {
     break;
 }
 
+function endsWith (needle, haystack) {
+  return haystack.indexOf(needle) === (haystack.length - needle.length);
+};
+
 function getDownloadLink(extension) {
   var xhr = new XMLHttpRequest();
   xhr.open('GET', "https://api.github.com/repos/tahnik/devRantron/releases/latest", true);
@@ -29,16 +33,16 @@ function getDownloadLink(extension) {
       const response = JSON.parse(xhr.responseText);
       const assets = response.assets;
       assets.forEach(function(element) {
-        if (element.name.indexOf('exe') !== -1) {
+        if (endsWith('exe', element.name)) {
           document.getElementById('windows').href = element.browser_download_url;
         }
-        if (element.name.indexOf('dmg') !== -1) {
+        if (endsWith('dmg', element.name)) {
           document.getElementById('macOS').href = element.browser_download_url;
         }
-        if (element.name.indexOf('deb') !== -1) {
+        if (endsWith('deb', element.name)) {
           document.getElementById('debian').href = element.browser_download_url;
         }
-        if (element.name.indexOf('AppImage') !== -1) {
+        if (endsWith('AppImage', element.name)) {
           document.getElementById('linux').href = element.browser_download_url;
         }
       }, this);
