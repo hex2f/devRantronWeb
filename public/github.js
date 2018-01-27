@@ -17,8 +17,7 @@ function getNumberOfDownloads(extension) {
             endsWith('exe', asset.name) ||
             endsWith('AppImage', asset.name) ||
             endsWith('dmg', asset.name) ||
-            endsWith('deb', asset.name) ||
-            endsWith('yml', asset.name)
+            endsWith('deb', asset.name)
           ) {
             downloads += parseInt(asset.download_count);
           }
