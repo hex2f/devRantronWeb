@@ -140,6 +140,71 @@
   border-radius: 5px;
 }
 
+.stats {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  background-color: #2A8B9D;
+}
+
+
+.stat_division {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.division_name {
+  opacity: 0.8;
+  margin-bottom: 1rem;
+}
+
+.division_items {
+  display: flex;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.stat > .stat_number {
+  font-size: 4rem;
+  font-weight: 600;
+}
+
+.stat > .stat_name {
+  font-size: 1.4rem;
+  font-weight: 300;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+}
+
+.launches > .division_items > .stat > .stat_number {
+  font-size: 2.5rem;
+}
+
+.launches > .division_items > .stat > .stat_name {
+  font-size: 1rem;
+}
+
+.usage > .division_items > .stat > .stat_number {
+  font-size: 2.5rem;
+}
+
+.usage > .division_items > .stat > .stat_name {
+  font-size: 1rem;
+}
+
+.total_downloads {
+  margin: 0 1.5rem;
+}
+
+
+
 /* Standard syntax */
 @keyframes cycle-banner {
   0% {
@@ -505,7 +570,7 @@ body > div.contributors.non_leads > div > div {
   justify-content: center;
   align-content: center;
   align-items: center;
-  background-color: #2A8B9D;
+  background-color: #54556E;
   z-index: 91;
 }
 
@@ -524,4 +589,19 @@ body > div.contributors.non_leads > div > div {
 
 #github * {
   z-index: 100;
+}
+
+@media screen and (max-width: 1000px) {
+  .stats {
+    flex-direction: column;
+  }
+  .total_downloads {
+    margin: 3rem 1.5rem;
+  }
+  .stat {
+    padding: 0 1.5rem;
+  }
+  #desc {
+    text-align: center;
+  }
 }

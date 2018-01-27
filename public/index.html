@@ -25,6 +25,9 @@
 
   <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
   <link href="css/main.css" rel="stylesheet">
+
+  <link rel="icon" type="image/png" href="/images/32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/images/16x16.png" sizes="16x16" />
 </head>
 
 <body>
@@ -137,6 +140,55 @@
 
   </div>
 
+  <div class="stats">
+    <div class="stat_division launches">
+      <div class="division_name">
+        <span>Launches</span>
+      </div>
+      <div class="division_items">
+        <div class="stat">
+          <div id="month" class="stat_number">...</div>
+          <div class="stat_name">Month</div>
+        </div>
+        <div class="stat">
+          <div id="total" class="stat_number">...</div>
+          <div class="stat_name">Total</div>
+        </div>
+        <div class="stat">
+          <div id="day" class="stat_number">...</div>
+          <div class="stat_name">Day</div>
+        </div>
+      </div>
+    </div>
+    <div class="stat_division total_downloads">
+        <div class="division_items">
+          <div class="stat">
+            <div id="downloads" class="stat_number">...</div>
+            <div class="stat_name">Downloads</div>
+          </div>
+        </div>
+      </div>
+    <div class="stat_division usage">
+      <div class="division_name">
+        <span>Usage</span>
+      </div>
+      <div class="division_items">
+        <div class="stat">
+          <div id="windows_stat" class="stat_number">...</div>
+          <div class="stat_name">Windows</div>
+        </div>
+        <div class="stat">
+          <div id="linux_stat" class="stat_number">...</div>
+          <div class="stat_name">Linux</div>
+        </div>
+        <div class="stat">
+          <div id="macOS_stat" class="stat_number">...</div>
+          <div class="stat_name">macOS</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <h1 class="tac">Contributors</h1>
   <div class="contributors">
@@ -217,12 +269,27 @@
     <h1 class="tac">GitHub</h1>
     <p>
       You can contribute to this project over on
-      <a href="https://GitHub.com/tahnik/devRantron">gitHub.com/tahnik/devRantron</a>. Make sure to read the "<a href="https://github.com/tahnik/devRantron/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a>" and "<a href="https://github.com/tahnik/devRantron/blob/master/CONTRIBUTING.md">Contributing</a>" guides before contributing.
+      <a href="https://GitHub.com/tahnik/devRantron">gitHub.com/tahnik/devRantron</a>. Make sure to read the "
+      <a href="https://github.com/tahnik/devRantron/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a>" and "
+      <a href="https://github.com/tahnik/devRantron/blob/master/CONTRIBUTING.md">Contributing</a>" guides before contributing.
     </p>
     <p>You can also report issues and bugs you find over at the
       <a href="https://github.com/tahnik/devRantron/issues">Issue Tracker</a>.</p>
   </div>
   <script src="index.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-database.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCecahon8es1PHYqSYmWwUYczeR5EdFUF0",
+      authDomain: "devrantron.firebaseapp.com",
+      databaseURL: "https://devrantron.firebaseio.com/",
+    };
+    firebase.initializeApp(config);
+  </script>
+  <script src="firebase.js"></script>
+  <script src="github.js"></script>
 </body>
 
 </html>
